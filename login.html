@@ -1,0 +1,48 @@
+<!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
+<head>
+  <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap-4.4.1-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap-4.4.1-dist/js/bootstrap.bundle.min.js">
+  <link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+    <title>&#127911 Pyradise - Log In </title>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+        <div class="card card-signin flex-row my-5">
+          <div class="card-img-left d-none d-md-flex">
+             <!-- Background image for card set in CSS! -->
+			  <img style="padding-top: 0px"  width="480" height="600" src="photos/Pyradise%20Logo.png">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">Welcome back !</h5>
+            <form class="form-signin">
+              <div class="form-label-group">
+                <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
+                <label for="inputUserame">Username</label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <label for="inputPassword">Password</label>
+              </div>
+              
+
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" formaction="home.html">Log in</button>
+              <a class="d-block text-center mt-2 small" href="signup.html">Sign up</a>
+              <hr class="my-4">
+                
+              <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit" formaction="https://accounts.google.com/signin/v2/identifier?hl=en&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i class="fab fa-google mr-2" ></i> Sign in with Google</button>
+                
+              <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit" formaction="https://www.facebook.com/login/device-based/regular/login/?login_attempt=1&lwv=110"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button>
+                
+            </form>
+              
+            <footer class="text-center">Copyright &copy; Pyradise 2020</footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
