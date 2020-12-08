@@ -9,7 +9,7 @@ function doGoogle()
     // using the object we will authenticate the user. 
     firebase.auth().signInWithPopup(googleAuth)
     .then((user) => {
-        window.location.href="/home.html";
+      window.location.assign("home.html");
       })
       .catch((error) => {
         var errorCode = error.code;
@@ -25,7 +25,7 @@ function doEmailLogin()
     password=document.getElementById("inputPassword").value;
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((user) => {
-        window.location.href="/home.html";
+        window.location.assign("home.html");
       })
       .catch((error) => {
         var errorCode = error.code;
@@ -53,7 +53,7 @@ function doEmailLogin()
       firebase.auth().createUserWithEmailAndPassword(email, password).then(function(result){
         //user registered and logged in automatically
         console.log("User registered!");
-        window.location.href="/survey.html";
+        window.location.assign("survey.html");
         return true;
       }).catch(function(error) {
         //error occurred, show error message
