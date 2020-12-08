@@ -31,6 +31,9 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "5.9.0",
         "bootstrap": "4.3.1",
+        "browserify": "^17.0.0",
+        "express": "^4.17.1",
+        "joi": "^17.3.0",
         "jquery": "3.4.1",
         "jquery.easing": "^1.4.1"
     },
