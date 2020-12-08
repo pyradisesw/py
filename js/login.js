@@ -35,28 +35,29 @@ function doEmailLogin()
       });
 }
 
-document.getElementById("registerButton").onclick = function() {
-    let email = document.getElementById("emailRegister").value;
-    let password = document.getElementById("passwordRegister").value;
-    let confirmPassword = document.getElementById("confirmPasswordRegister").value;
-    let errorEl = document.getElementById("errorRegister");
+  
+ function doRegister ()
+  {
+    var email = document.getElementById("inputUsername").value;
+    var password = document.getElementById("inputPassword").value;
+    var confirmPassword = document.getElementById("inputConfirmPassword").value;
+    var errBox = document.getElementById("error");
   
     if (password !== confirmPassword) {
       errorMessage="passwords must match."
       errBox.innerHTML=errorMessage;
       return;
+    } else {
+      firebase.auth().createUserWithEmailAndPassword(email, password).then(function(result){
+        //user registered and logged in automatically
+        console.log("User registered!");
+        return true;
+      }).catch(function(error) {
+        //error occurred, show error message
+        let errorCode = error.code;
+        let errorMessage = error.message;
+        errBox=document.getElementById("error");
+        errBox.innerHTML=errorMessage;
+      });
     }
-  
- function doRegister (email, password)
-  {
-    firebase.auth().createUserWithEmailAndPassword(email, password).then(function(result){
-      //user registered and logged in automatically
-      console.log("User registered!");
-      return true;
-    }).catch(function(error) {
-      //error occurred, show error message
-      let errorCode = error.code;
-      let errorMessage = error.message;
-    });
-  };
   }
