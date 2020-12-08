@@ -49,15 +49,11 @@
 		    // using the object we will authenticate the user. 
 		    firebase.auth().signInWithPopup(googleAuth)
 			.then((user) => {
-<<<<<<< HEAD
-			    
-=======
 			    // Signed in 
 			    // ...
 				 document.getElementById("home").href="home.hmtl";
 				
 				 
->>>>>>> 6ca217216f6be871505dda6411b1e4a642385f62
 			  })
 			  .catch((error) => {
 			    var errorCode = error.code;
@@ -102,7 +98,6 @@
              <!-- Background image for card set in CSS! -->
 			  <img style="padding-top: 0px"  width="480" height="400" src="img/Pyradise%20Logo.png">
           </div>
-<<<<<<< HEAD
         <div class="card-body">
             <h5 class="card-title text-center">Welcome back !</h5>
             <form class="form-signin">
@@ -154,43 +149,6 @@
                     	<a class="nav-link nav-link-4" href="user-guide.html">User Guide</a>
                 	</li>
             	</ul>
-=======
-          <div class="card-body">
-            <h5 class="card-title text-center">Welcome to Pyradise</h5>
-			  <br>
-			  
-            <form class="form-signin">
-              <div class="form-label-group">
-                <input type="text" id="inputUsername" class="form-control" placeholder="Username"  autofocus >
-                <label for="inputUserame">Username</label>
-              </div>
-
-              <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" >
-                <label for="inputPassword">Password</label>
-              </div>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="button" onClick="doEmailLogin();">Log in</button>
-				<br>
-		<div> 
-		   <button class="btn btn-lg btn-google btn-block text-uppercase" type="button" onClick="doGoogle();"><i class="fab fa-google mr-2" ></i>
-			  Sign in with Google 
-		    </button> 
-		 </div>               
-		    <a class="d-block text-center mt-2 big" href="signup.html">Sign up</a>
-          
-                
-              <!--<button class="btn btn-lg btn-google btn-block text-uppercase" type="submit" formaction="https://accounts.google.com/signin/v2/identifier?hl=en&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i class="fab fa-google mr-2" ></i> Sign in with Google</button>-->
-            <!--<div id="error" class="alert alert-warning alert-dismissible fade show" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				<span aria-hidden="true">&times;</span></button>
-			</div>-->
-            </form>
-			  
-			  <br>
-        	
-            <footer class="text-center">Copyright &copy; Pyradise 2020 <a class="d-block text-center mt-2 big" href="user-guide.html">User Guide</a> </footer>
-			
->>>>>>> 6ca217216f6be871505dda6411b1e4a642385f62
           </div>
         </div>
       </div>
