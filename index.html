@@ -9,24 +9,6 @@
     <title>Pyradise - Log In </title>
 
 <body>
-	<nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-				<img src ="img/Pyradise%20Logo.png" height=60>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link nav-link-4" href="user-guide.html">User Guide</a>
-                </li>
-            </ul>
-            </div>
-        </div>
-    </nav>
 	
   <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
 
@@ -99,6 +81,7 @@
           </div>
           <div class="card-body">
             <h5 class="card-title text-center">Welcome back !</h5>
+			  <br>
 			  
             <form class="form-signin">
               <div class="form-label-group">
@@ -117,16 +100,19 @@
 			  Sign in with Google 
 		    </button> 
 		 </div>               
-		    <a class="d-block text-center mt-2 small" href="signup.html">Sign up</a>
-              <hr class="my-4">
+		    <a class="d-block text-center mt-2 big" href="signup.html">Sign up</a>
+          
                 
               <!--<button class="btn btn-lg btn-google btn-block text-uppercase" type="submit" formaction="https://accounts.google.com/signin/v2/identifier?hl=en&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><i class="fab fa-google mr-2" ></i> Sign in with Google</button>-->
-            <div id="error" class="alert alert-warning alert-dismissible fade show" role="alert">
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				<span aria-hidden="true">&times;</span></button></div>    
+            <!--<div id="error" class="alert alert-warning alert-dismissible fade show" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span></button>
+			</div>-->
             </form>
-             
-            <footer class="text-center">Copyright &copy; Pyradise 2020</footer>
+			  
+			  <br>
+        	
+            <footer class="text-center">Copyright &copy; Pyradise 2020 <a class="d-block text-center mt-2 big" href="user-guide.html">User Guide</a> </footer>
 			
           </div>
         </div>
