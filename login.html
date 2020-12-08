@@ -53,6 +53,8 @@
 			  .catch((error) => {
 			    var errorCode = error.code;
 			    var errorMessage = error.message;
+			    errBox=document.getElementById("error");
+			    errBox.innerHTML=errorMessage;
 			  });
 		}
 	</script>
@@ -77,7 +79,7 @@
                 <label for="inputPassword">Password</label>
               </div>
               
-
+	      <div id="error"></div>
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="button" onClick="doEmailLogin();">Log in</button>
 		<div> 
 		   <button class="btn btn-lg btn-google btn-block text-uppercase" type="button" onClick="doGoogle();">
