@@ -15,6 +15,7 @@ function doGoogle()
         var errorCode = error.code;
         var errorMessage = error.message;
         errBox=document.getElementById("error");
+        errBox.classList.remove("d-none");
         errBox.innerHTML=errorMessage;
       });
 }
@@ -31,12 +32,13 @@ function doEmailLogin()
         var errorCode = error.code;
         var errorMessage = error.message;
         errBox=document.getElementById("error");
+        errBox.classList.remove("d-none");
         errBox.innerHTML=errorMessage;
       });
 }
 
   
- function doRegister ()
+ function doRegister()
   {
     var email = document.getElementById("inputUsername").value;
     var password = document.getElementById("inputPassword").value;
@@ -46,6 +48,7 @@ function doEmailLogin()
     if (password !== confirmPassword) {
       errorMessage="passwords must match."
       errBox.innerHTML=errorMessage;
+      errBox.classList.remove("d-none");
       return;
     } else {
       firebase.auth().createUserWithEmailAndPassword(email, password).then(function(result){
@@ -57,6 +60,7 @@ function doEmailLogin()
         let errorCode = error.code;
         let errorMessage = error.message;
         errBox=document.getElementById("error");
+        errBox.classList.remove("d-none");
         errBox.innerHTML=errorMessage;
       });
     }
