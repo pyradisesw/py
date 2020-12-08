@@ -54,14 +54,14 @@
 
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" formaction="index.html">Log in</button>
 		<div> 
-		   <button class="btn btn-lg btn-google btn-block text-uppercase" onClick={ 
+		   <button class="btn btn-lg btn-google btn-block text-uppercase" onClick=" 
 		     // Google provider object is created here. 
 		    const googleAuth =  
 			  new firebase.auth.GoogleAuthProvider(); 
 
 		    // using the object we will authenticate the user. 
 		    firebase.auth().signInWithPopup(googleAuth); 
-				    }>
+				    ">
 			  Sign in with Google 
 		    </button> 
 		 </div>               
