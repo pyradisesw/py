@@ -119,25 +119,25 @@
 					</button> 
 				</div>               
 				
-				<div class="form-label-group signupForm">
+				<div class="form-label-group signupForm d-none">
 					<input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
 					<label for="inputConfirmPassword">Confirm password</label>
 				</div>
-				<div class="form-label-group signupForm"> 
+				<div class="form-label-group signupForm d-none"> 
 				<button id="btnRegister" class="btn btn-lg btn-primary btn-block text-uppercase" type="button" onClick="doGoogle();">
 					Register with Email
 				</button> 
 				</div>        
-				<div class="form-label-group signupForm"> 
+				<div class="form-label-group signupForm d-none"> 
 				<button id="btnGoogle" class="btn btn-lg btn-google btn-block text-uppercase" type="button" onClick="doGoogle();">
 					Register with Google 
 					</button> 
 				</div>     
 				<div class="form-label-group signupForm"> 
-					<a class="d-block text-center mt-2 small" onClick="signupForm();">Sign up</a>
+					<class="d-block text-center mt-2 small" onClick="signupForm();">Sign up</a>
 				</div>
 						<hr class="my-4">
-				<div id="error" class="alert alert-warning alert-dismissible fade show" display="none" role="alert">
+				<div id="error" class="alert alert-warning alert-dismissible fade show d-none"  role="alert">
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span></button>
 				</div>    
@@ -157,8 +157,10 @@
   <script>
 	  function signupForm()
 	  {
-		  document.getElementsByClass("signupForm").display='block';
-		  document.getElementsbyClass("loginForm").display='none';
+		  document.getElementsByClass("signupForm").classList.remove("d-block");
+		  document.getElementsByClass("signupForm").classList.add("d-none");
+		  document.getElementsbyClass("loginForm").classList.remove("d-block");
+		  document.getElementsbyClass("loginForm").classList.add("d-none");
 	  }
   </script>
 </body>
