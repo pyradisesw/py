@@ -48,6 +48,7 @@ function doEmailLogin()
     if (password !== confirmPassword) {
       errorMessage="passwords must match."
       errBox.innerHTML=errorMessage;
+      errBox.classList.remove("d-none");
       return;
     } else {
       firebase.auth().createUserWithEmailAndPassword(email, password).then(function(result){
