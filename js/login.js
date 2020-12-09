@@ -84,9 +84,7 @@ function doEmailLogin()
     //}
   }
 
-  
-const db = admin.firestore();
-
+ 
 /**
  * This Code Creates a user profile document with ID -> uid in the `Users` collection.
  *
