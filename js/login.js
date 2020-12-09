@@ -79,3 +79,26 @@ function doEmailLogin()
       userProfile=fbUser.uid
     }
   }
+
+  
+const db = admin.firestore();
+
+/**
+ * This Code Creates a user profile document with ID -> uid in the `Users` collection.
+ *
+ * @param {Object} userRecord Contains the auth, uid and displayName info.
+ * @param {Object} context Details about the event.
+ */
+const createProfile = (userRecord, context) => {
+  const { email, username, uid } = userRecord;
+
+  return db
+    .collection("user")
+    .doc(uid)
+    .set({ email, username })
+    .catch(console.error);
+};
+
+module.exports = {
+  authOnCreate: functions.auth.user().onCreate(createProfile),
+};

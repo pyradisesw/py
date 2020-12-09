@@ -30,6 +30,9 @@
 
             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                 <li class="nav-item">
+                    <a id="curUser" class="nav-link nav-link-4" href="survey.html">Username</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link nav-link-4" href="contact.html">Founders</a>
                 </li>
             </ul>
@@ -43,22 +46,22 @@
         </div>
         <div id="comments" class="row tm-mb-90">    
 
-			<div id="tplComment" class="container-fluid d-none">
+			<div id="tplComment" class="container-fluid ">
                 <div class="row">
                     <div class="col-md-8">
                         <div class="row">
                             <div class="col-md-4">
-                                 <span class="badge badge-primary">Posted By</span>
-                                 <span name="posted_by"></span>
+                                 <span class="">Posted By</span>
+                                 <span name="posted_by">John Appleseed</span>
                             </div>
                             <div class="col-md-4">
                             </div>
                             <div class="col-md-4">
-                                 <span class="badge badge-primary">Date</span>
-                                 <span name="posted_on"></span>
+                                 <span class="">Date</span>
+                                 <span name="posted_on">01/01/2020</span>
                             </div>
                         </div>
-                        <p name="body">
+                        <p name="body">This is my comment. There are many others like it but this one is mine.
                         </p>
                         <div class="row">
                             <div class="col-md-8">
@@ -164,6 +167,8 @@
     <script>
         $(window).on("load", function() {
             $('body').addClass('loaded');
+            document.getElementById("curUser");
+            
         });
     </script>
     <script src="js/firestore.js"></script>
