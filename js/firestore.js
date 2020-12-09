@@ -30,7 +30,7 @@ class Base {
     }
 
     async read(id) {
-        this=firestore.collection(this.collectionName).doc(id).get().then(function(doc) {
+        firestore.collection(this.collectionName).doc(id).get().then(function(doc) {
             if (doc.exists) {
                 console.log("Document data:", doc.data());
             } else {
