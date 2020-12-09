@@ -10,7 +10,7 @@ function doGoogle()
 
     // using the object we will authenticate the user. 
     firebase.auth().signInWithPopup(googleAuth)
-    .then((user) => {
+    .then(function(user){
       //alert('successfully logged in user'+user.displayName);
       window.location.assign("home.html");
       })
