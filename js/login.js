@@ -30,7 +30,7 @@ function doEmailLogin()
         window.location.assign("home.html");
       })
       .catch((error) => {
-        var errorCode = error.code;
+        var errCode = error.code;
         var errorMessage = error.message;
         errBox=document.getElementById("error");
         errBox.classList.remove("d-none");
@@ -55,6 +55,7 @@ function doEmailLogin()
       firebase.auth().createUserWithEmailAndPassword(email, password).then(function(result){
         //user registered and logged in automatically
         console.log("User registered!");
+        firebase.auth().currentUser.sendEmailVerification();
         window.location.assign("survey.html");
         return true;
       }).catch(function(error) {
@@ -70,7 +71,7 @@ function doEmailLogin()
 
   function loadUserProfile()
   {
-    var fbUser=firebase.auth().currentUser();
+    var fbUser=firebase.auth().currentUser;
     if (fbUser==null) {
       window.location.assign("index.html");
       return;
