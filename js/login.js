@@ -11,7 +11,7 @@ function doGoogle()
     // using the object we will authenticate the user. 
     firebase.auth().signInWithPopup(googleAuth)
     .then((user) => {
-      alert('successfully logged in user'+user.displayName);
+      //alert('successfully logged in user'+user.displayName);
       window.location.assign("home.html");
       })
       .catch((error) => {
@@ -28,7 +28,7 @@ function doEmailLogin()
     password=document.getElementById("inputPassword").value;
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((user) => {
-        alert('successfully logged in user'+user.displayName);
+        //alert('successfully logged in user'+user.displayName);
         window.location.assign("home.html");
       })
       .catch((error) => {
