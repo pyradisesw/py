@@ -197,7 +197,7 @@
             $('body').addClass('loaded');
             objUserName=document.getElementById("curUser");
             curUser=loadUserProfile();
-            objUserName.innerHTML=curUser.displayName;
+            objUserName.innerHTML=curUser.email;
         });
     </script>
     <script src="js/firestore.js"></script>
@@ -252,7 +252,7 @@
             obj.push("contentid").push(frm.elements.namedItem("contentid").value);
             obj.push("replyTo").push(frm.elements.namedItem("replyTo").value);
             obj.push("body").push(frm.elements.namedItem("body").value);
-            obj.push("posted_by").push(curUser.displayName);
+            obj.push("posted_by").push(curUser.email);
             var fbComment=Comment.create(obj);
             var newComment=drawComment(fbComment);
             frm.parentElement.appendChild(newComment);
