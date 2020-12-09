@@ -187,7 +187,7 @@
         }
         function drawComment(curComment)
         {
-            template=document.getElementsById("tplComment");
+            template=document.getElementById("tplComment");
             newComment=template.cloneNode();
             newComment.nodeValue("id").innerHTML=curComment.id;
             newComment.nodeValue("contentid").innerHTML=curComment.contentid;
