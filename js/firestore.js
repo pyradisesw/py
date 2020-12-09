@@ -28,7 +28,7 @@ class Base {
     });;
     this.fields = fields;
     }
-    
+
     async read(id) {
         this=firestore.collection(this.collectionName).doc(id).get().then(function(doc) {
             if (doc.exists) {
@@ -44,4 +44,17 @@ class Base {
       }
   
     }
+}
+
+function getCommentsByContentId(id) {
+    firestore.collection("comments").get().where("contentid","==",id).then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+        });
+    });
+}
+
+function getContentByTopic(topic) {
+    firestore.collection("content").get().where("topics.topic","==",topic).then(function(querySnapshot) {
+        return querySnapshot.docs;
+    });
 }

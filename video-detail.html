@@ -41,8 +41,44 @@
         <div class="row mb-4">
             <h2 class="col-12 tm-text-primary"></h2>
         </div>
-        <div id="comments" class="row tm-mb-90">            
-			
+        <div id="comments" class="row tm-mb-90">    
+
+			<div id="tplComment" class="container-fluid d-none">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-4">
+                                 <span class="badge badge-primary">Posted By</span>
+                                 <span name="posted_by"></span>
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-4">
+                                 <span class="badge badge-primary">Date</span>
+                                 <span name="posted_on"></span>
+                            </div>
+                        </div>
+                        <p name="body">
+                        </p>
+                        <div class="row">
+                            <div class="col-md-8">
+                                 
+                                <button name="btnReply" type="button" class="btn btn-success" onClick="replyForm();">
+                                    Reply...
+                                </button>
+                            </div>
+                            <div class="col-md-4">
+                                 
+                                <button type="button" class="btn btn-danger">
+                                    Flag (Spam)
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                </div>
+            </div>
 		<!--<iframe height="830" src="https://www.youtube.com/embed/rfscVS0vtbw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			
 		<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc6tgtV8gjt9X1TlXCPdfEA0L1Py8cYO9fitS4I5EoSgIPHxQ/viewform?embedded=true" width="640" height="1005" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>-->
@@ -158,6 +194,7 @@
             newComment.elements.namedItem("posted_by").innerHTML=curComment.posted_by;
             newComment.elements.namedItem("body").innerHTML=curComment.body;
             newComment.nodeValue("replyTo")=curComment.replyTo;
+            newComment.elements.namedItem("btnReply").value("onClick")="replyForm("+curComment.id+");"
             
             return newComment;
         }
