@@ -2,7 +2,7 @@
 function doGoogle()
 {
      
-firebase.auth().setPersistence(firebase.auth().Auth.Persistance.LOCAL);
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 
      // Google provider object is created here. 
     const googleAuth =  
