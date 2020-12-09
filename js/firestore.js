@@ -1,3 +1,5 @@
+firestore=firebase.firestore();
+
 class Base {
 
     constructor(args) {

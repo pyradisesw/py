@@ -96,7 +96,7 @@ const db = admin.firestore();
 const createProfile = (userRecord, context) => {
   const { email, username, uid } = userRecord;
 
-  return db
+  return firebase.firestore()
     .collection("user")
     .doc(uid)
     .set({ email, username })
