@@ -1,8 +1,10 @@
 // models/Base.js
 
+
 class Base {
     constructor(args) {
-      const results = this.validatedData(args);
+      const this.validate = ajv.compile
+      const results = this.validateData(args);
       Object.assign(this, results);
     }
   

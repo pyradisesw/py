@@ -41,11 +41,11 @@
         <div class="row mb-4">
             <h2 class="col-12 tm-text-primary"></h2>
         </div>
-        <div class="row tm-mb-90">            
+        <div id="comments" class="row tm-mb-90">            
 			
-		<iframe height="830" src="https://www.youtube.com/embed/rfscVS0vtbw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<!--<iframe height="830" src="https://www.youtube.com/embed/rfscVS0vtbw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			
-		<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc6tgtV8gjt9X1TlXCPdfEA0L1Py8cYO9fitS4I5EoSgIPHxQ/viewform?embedded=true" width="640" height="1005" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+		<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc6tgtV8gjt9X1TlXCPdfEA0L1Py8cYO9fitS4I5EoSgIPHxQ/viewform?embedded=true" width="640" height="1005" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>-->
        
         </div>
         <div class="row mb-4">
@@ -54,7 +54,7 @@
             </h2>
         </div>
         <div class="row mb-3 tm-gallery">
-		<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+		<div id = "related" class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure class="effect-ming tm-video-item">
                     <!--<img src="img/img-01.jpg" alt="Image" class="img-fluid">-->
 					
@@ -129,6 +129,69 @@
         $(window).on("load", function() {
             $('body').addClass('loaded');
         });
+    </script>
+    <script src="js/firestore.js"></script>
+    <script>
+        function loadComments(contentid)
+        {
+            aryComments=getCommentsByContentId(contentid);
+            aryComments.forEach(
+                function(curComment) {
+                    nodeComment=drawComment(curComment);
+                    if (!curComment.replyTo==null) {
+                        parent=document.getElementById("comments");
+                    } else {
+                        parent=this.getElementById(curComment.replyTo);
+                    }
+                    parent.appendChild(nodeComment);
+                    //make it visible
+                    nodeComment.classList.remove("d-none");
+                }
+            );
+        }
+        function drawComment(curComment)
+        {
+            template=document.getElementsById("tplComment");
+            newComment=template.cloneNode();
+            newComment.nodeValue("id").innerHTML=curComment.id;
+            newComment.nodeValue("contentid").innerHTML=curComment.contentid;
+            newComment.elements.namedItem("posted_by").innerHTML=curComment.posted_by;
+            newComment.elements.namedItem("body").innerHTML=curComment.body;
+            newComment.nodeValue("replyTo")=curComment.replyTo;
+            
+            return newComment;
+        }
+        function replyForm(replyTo)
+        {
+            frm=document.getElementById("tplReply");
+            if (replyTo != NULL) {
+                parent=document.getElementById("comments");
+            } else {
+                parent=document.getElementById(replyTo);
+            }
+            parent.appendChild(frm);
+            frm.reset;
+            frm.elements.namedItem("replyTo").value=replyTo;
+            frm.elements.namedItem("contentid").value=thisContent.id;
+            frm.classList.remove("d-none");
+        }
+        function doReply() {
+            var obj={};
+            var frm=document.getElementById("tplReply");
+            obj.push("contentid").push(frm.elements.namedItem("contentid").value);
+            obj.push("replyTo").push(frm.elements.namedItem("replyTo").value);
+            obj.push("body").push(frm.elements.namedItem("body").value);
+            obj.push("posted_by").push(curUser.displayName);
+            var fbComment=Comment.create(obj);
+            var newComment=drawComment(fbComment);
+            frm.parentElement.appendChild(newComment);
+            //hide the form
+            frm.classList.add("d-none");        
+        }
+        function saveComment()
+        {
+            
+        }
     </script>
 </body>
 </html>

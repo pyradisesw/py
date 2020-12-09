@@ -4,7 +4,7 @@ class User extends Base {
     // Expected schema of the User record
     get schema() {
       return {
-        uid: Joi.string(),
+        $id: Joi.string(),
         createdAt: Joi.string().isoDate(),
         lastUpdated: Joi.string().isoDate(),
         displayName: Joi.string().allow('').allow(null).default(''),
@@ -22,7 +22,7 @@ class User extends Base {
   
     // Saves new user to Firestore with the same ID used with Firebase auth
     async create() {
-      if (!this.id) {
+      if (!this.$id) {
         throw new Error('Users must have an id assigned by firebase');
       }
       const fields = this.fields;
@@ -30,7 +30,7 @@ class User extends Base {
     }
   
     static async register(userParams) {
-        if (!this.uid) {
+        if (!this.$id) {
             throw new Error('Users must have an id assigned by firebase');
           }
           const fields = this.fields;
@@ -38,47 +38,5 @@ class User extends Base {
     }
   
     static async deleteUserById(id) {
-      ...
     }
-  
-    ...
-  };
-    // Collection name found in firestore
-    static collectionName() { return 'comment'; }
-  
-    // Saves new comment to Firestore with the same ID used with Firebase auth
-    async create() {
-      if (this.id) {
-        throw new Error('Comment must have an id assigned by firebase');
-      }
-      const fields = this.fields;
-      return firestore.collection(this.collectionName).doc().set(fields);
-    }
-
-    async read(id) {
-        this=firestore.collection(this.collectionName).doc(id).get().then(function(doc) {
-            if (doc.exists) {
-                console.log("Document data:", doc.data());
-            } else {
-                // doc.data() will be undefined in this case
-                console.log("No such document!");
-            }
-        }).catch(function(error) {
-            console.log("Error getting document:", error);
-        });;
-        this.fields = fields;
-      }
-  
-    }
-
-    static async findUnapproved() {
-        firestore.collection(this.collectionName).get().where("approved","==",false).then(function(querySnapshot) {
-            querySnapshot.forEach(function(doc) {
-            });
-        });
-      }
-
-      static async search() {
-          firestore.Query().where(fieldPath,opStr,)
-      }
-  };
+}

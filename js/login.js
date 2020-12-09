@@ -67,3 +67,15 @@ function doEmailLogin()
       });
     }
   }
+
+  function loadUserProfile()
+  {
+    var fbUser=firebase.auth().currentUser();
+    if (fbUser==null) {
+      window.location.assign("index.html");
+      return;
+    } else 
+    {
+      userProfile=fbUser.uid
+    }
+  }
