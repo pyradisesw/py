@@ -98,10 +98,13 @@
   <script>
 	  function signupForm()
 	  {
+		  if (document.getElementById("signupForm").classList.contains("d-none"){
 		  document.getElementById("signupForm").classList.remove("d-none");
-		  document.getElementById("signupForm").classList.add("d-block");
-		  document.getElementById("loginForm").classList.remove("d-block");
 		  document.getElementById("loginForm").classList.add("d-none");
+		} else {
+			document.getElementById("signupForm").classList.add("d-none");
+		 	document.getElementById("loginForm").classList.remove("d-none");
+		}
 	  }
   </script>
   <script src="js/login.js"></script>	
