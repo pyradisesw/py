@@ -1,4 +1,6 @@
 
+firebase.auth().setPersistence(firebase.auth.Auth.Persistance.LOCAL);
+
 function doGoogle()
 {
      
@@ -71,15 +73,15 @@ function doEmailLogin()
 
   function loadUserProfile()
   {
-    var fbUser=firebase.auth().currentUser;
-    if (fbUser==null) {
-      window.location.assign("index.html");
-      return;
-    } else 
-    {
-    curUser=firestore.collection("user").doc(uid);
+    firebase.auth().currentUser;
+    //if (fbUser==null) {
+      //window.location.assign("index.html");
+    //  return;
+    //} else 
+    //{
+    curUser=firestore.collection("user").doc(fbUser.uid);
     return curUser;
-    }
+    //}
   }
 
   
