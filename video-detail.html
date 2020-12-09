@@ -167,8 +167,9 @@
     <script>
         $(window).on("load", function() {
             $('body').addClass('loaded');
-            document.getElementById("curUser");
-            
+            objUserName=document.getElementById("curUser");
+            curUser=loadUserProfile();
+            objUserName.innerHTML=curUser.displayName;
         });
     </script>
     <script src="js/firestore.js"></script>

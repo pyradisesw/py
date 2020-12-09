@@ -76,7 +76,8 @@ function doEmailLogin()
       return;
     } else 
     {
-      userProfile=fbUser.uid
+    curUser=firestore.collection("user").doc(uid);
+    return curUser;
     }
   }
 
